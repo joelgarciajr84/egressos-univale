@@ -13,6 +13,7 @@
     if (response.authResponse) {
      console.log('Olá!  Buscando suas informações ');
      FB.api('/me', function(response) {
+         console.log(response);
        console.log('Olá, ' + response.name + ' quanto tempo!');
      });
     } else {
