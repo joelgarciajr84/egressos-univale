@@ -27,13 +27,16 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 
+   function statusChangeCallback(resonse){
+       console.log(response);
+   }
+
    FB.getLoginStatus(function(response) {
+       console.log(response);
     statusChangeCallback(response);
 });
 
-function statusChangeCallback(resonse){
-    console.log(response);
-}
+
 function checkLoginState() {
   FB.getLoginStatus(function(response) {
       console.log(response);
