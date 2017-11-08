@@ -6,50 +6,34 @@
     </head>
     <body>
 
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '155564921853909',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v2.11'
-    });
 
-    FB.AppEvents.logPageView();
+    <script>
+    function init() {
+        FB.login(function(response) {
+          console.log(response);
+        }, {scope: 'email,public_profile', user_education_history});
+    }
 
-  };
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '155564921853909',
+        xfbml      : true,
+        version    : 'v2.11'
+      });
 
-  </script>
+      init();
+    };
 
-  <script>
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/pt_BR/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-
-   function statusChangeCallback(resonse){
-       console.log(response);
-   }
-
-   FB.getLoginStatus(function(response) {
-       console.log(response);
-    statusChangeCallback(response);
-});
-
-
-FB.login(function(response) {
-  console.log(response);
-}, {scope: 'email,public_profile', user_education_history});
-
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/pt_BR/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 </script>
 
 
-<fb:login-button
-  scope="public_profile,email, education"
-  onlogin="checkLoginState();">
-</fb:login-button>
+
     </body>
 </html>
