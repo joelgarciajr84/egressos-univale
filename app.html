@@ -11,7 +11,7 @@
     function init() {
         FB.login(function(response) {
           console.log(response);
-      }, {scope: 'email,public_profile,user_education_history'});
+      }, {scope: 'email,public_profile'});
     }
 
     window.fbAsyncInit = function() {
