@@ -10,16 +10,16 @@
     <script>
     function init() {
         FB.login(function(response) {
-    if (response.authResponse) {
-     console.log('Olá!  Buscando suas informações ');
-     FB.api('/me', function(response) {
-         console.log(response);
-       console.log('Olá, ' + response.name + ' quanto tempo!');
-     });
-    } else {
-     console.log('Algum erro ocorreu!');
-    }
-}, {scope: 'email, public_profile'})}
+            if (response.authResponse) {
+                console.log('Olá!  Buscando suas informações ');
+                FB.api('/me', function(response) {
+                    console.log(response);
+                    console.log('Olá, ' + response.name + ' quanto tempo!');
+                });
+            } else {
+                console.log('Algum erro ocorreu!');
+            }
+}, {scope: 'email, public_profile,id,name,gender,birthday'})}
 
     window.fbAsyncInit = function() {
       FB.init({
@@ -39,8 +39,6 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
-
-
 
     </body>
 </html>
