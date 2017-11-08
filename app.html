@@ -10,8 +10,15 @@
     <script>
     function init() {
         FB.login(function(response) {
-          console.log(response);
-      }, {scope: 'email,public_profile'});
+    if (response.authResponse) {
+     console.log('Olá!  Buscando suas informações ');
+     FB.api('/me', function(response) {
+       console.log('Olá, ' + response.name + ' quanto tempo!');
+     });
+    } else {
+     console.log('Algum erro ocorreu!');
+    }
+});
     }
 
     window.fbAsyncInit = function() {
